@@ -7,6 +7,7 @@ def main():
     parser.add_argument("--text", type=str, required=True, help="Input text for TTS")
     parser.add_argument("--spk_audio_prompt", type=str, default="examples/voice_07.wav", help="Reference speaker audio")
     parser.add_argument("--emo_audio_prompt", type=str, default=None, help="Optional emotion audio")
+    parser.add_argument("--emo_vector", type=list, default=None, help="[happy, angry, sad, afraid, disgusted, melancholic, surprised, calm]")
     parser.add_argument("--output_path", type=str, default="gen.wav", help="Output wav file path")
     parser.add_argument("--model_dir", type=str, default="checkpoints", help="Directory of model checkpoints")
     parser.add_argument("--use_fp16", action="store_true", help="Enable FP16")
@@ -31,6 +32,7 @@ def main():
         text=args.text,
         output_path=args.output_path,
         emo_audio_prompt=args.emo_audio_prompt,
+        emo_vector=args.emo_vector,
         verbose=args.verbose
     )
 
